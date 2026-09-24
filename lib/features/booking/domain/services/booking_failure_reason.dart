@@ -5,4 +5,5 @@ enum BookingFailureReason {
   notEnoughConsecutiveSlots,
   exceedsWorkingHours,
   createsInvalidGap,
+  persistenceFailure,
 }
