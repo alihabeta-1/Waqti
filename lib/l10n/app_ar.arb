@@ -1,0 +1,37 @@
+{
+  "@@locale": "ar",
+
+  "appName": "وقتي",
+  "selectSlot": "اختر موعدك",
+  "selectSlotSubtitle": "اختر الوقت المناسب لموعدك",
+  "duration": "مدة الحجز",
+  "chooseStartTime": "اختر وقت البداية",
+
+  "thirtyMinutes": "30 دقيقة",
+  "sixtyMinutes": "60 دقيقة",
+  "ninetyMinutes": "90 دقيقة",
+  "oneHundredTwentyMinutes": "120 دقيقة",
+
+  "available": "متاح",
+  "booked": "محجوز",
+  "unavailable": "غير متاح",
+  "selected": "محدد",
+
+  "bookingSummary": "ملخص الحجز",
+  "startTime": "البداية",
+  "endTime": "النهاية",
+  "totalDuration": "المدة",
+
+  "confirmBooking": "تأكيد الحجز",
+  "reset": "إعادة تعيين",
+
+  "bookingConfirmed": "تم تأكيد الحجز",
+  "selectDurationFirst": "اختر مدة الحجز لعرض المواعيد المتاحة",
+  "noAvailableTimes": "لا توجد مواعيد متاحة لهذه المدة",
+
+  "slotAlreadyBooked": "هذا الموعد محجوز بالفعل",
+  "slotUnavailable": "هذا الموعد غير متاح",
+  "notEnoughConsecutiveSlots": "لا توجد مواعيد متتالية كافية للحجز",
+  "bookingExceedsWorkingHours": "هذا الحجز يتجاوز ساعات العمل",
+  "invalidThirtyMinuteGap": "هذا الحجز سيترك فترة 30 دقيقة غير صالحة"
+}

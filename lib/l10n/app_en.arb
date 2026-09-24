@@ -1,0 +1,37 @@
+{
+  "@@locale": "en",
+
+  "appName": "Waqti",
+  "selectSlot": "Select Slot",
+  "selectSlotSubtitle": "Choose your preferred appointment time",
+  "duration": "Duration",
+  "chooseStartTime": "Choose a start time",
+
+  "thirtyMinutes": "30 min",
+  "sixtyMinutes": "60 min",
+  "ninetyMinutes": "90 min",
+  "oneHundredTwentyMinutes": "120 min",
+
+  "available": "Available",
+  "booked": "Booked",
+  "unavailable": "Unavailable",
+  "selected": "Selected",
+
+  "bookingSummary": "Booking Summary",
+  "startTime": "Start",
+  "endTime": "End",
+  "totalDuration": "Duration",
+
+  "confirmBooking": "Confirm Booking",
+  "reset": "Reset",
+
+  "bookingConfirmed": "Booking confirmed",
+  "selectDurationFirst": "Select a duration to see available start times",
+  "noAvailableTimes": "No available times for this duration",
+
+  "slotAlreadyBooked": "This time is already booked",
+  "slotUnavailable": "This time is unavailable",
+  "notEnoughConsecutiveSlots": "Not enough consecutive time slots are available",
+  "bookingExceedsWorkingHours": "This appointment would extend beyond working hours",
+  "invalidThirtyMinuteGap": "This booking would leave an invalid 30-minute gap"
+}
