@@ -5,6 +5,7 @@ import 'package:waqti/features/booking/data/datasources/booking_local_data_sourc
 import 'package:waqti/features/booking/data/repositories/booking_repository_impl.dart';
 import 'package:waqti/features/booking/domain/repositories/booking_repository.dart';
 import 'package:waqti/features/booking/domain/services/booking_validator.dart';
+import 'package:waqti/features/booking/presentation/cubit/booking_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -27,4 +28,11 @@ Future<void> setupDependencies() async {
   getIt.registerLazySingleton<BookingValidator>(() => const BookingValidator());
 
   getIt.registerFactory<AppCubit>(() => AppCubit());
+
+  getIt.registerFactory<BookingCubit>(
+    () => BookingCubit(
+      repository: getIt<BookingRepository>(),
+      validator: getIt<BookingValidator>(),
+    ),
+  );
 }

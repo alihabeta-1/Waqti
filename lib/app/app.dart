@@ -5,6 +5,7 @@ import 'package:waqti/app/cubit/app_cubit.dart';
 import 'package:waqti/app/cubit/app_state.dart';
 import 'package:waqti/app/theme/app_theme.dart';
 import 'package:waqti/core/di/injection_container.dart';
+import 'package:waqti/features/splash/presentation/views/splash_View.dart';
 import 'package:waqti/l10n/app_localizations.dart';
 
 class WaqtiApp extends StatelessWidget {
@@ -32,7 +33,7 @@ class WaqtiApp extends StatelessWidget {
                 localizationsDelegates: AppLocalizations.localizationsDelegates,
                 supportedLocales: AppLocalizations.supportedLocales,
 
-                home: const Placeholder(),
+                home: const SplashView(),
               );
             },
           );
