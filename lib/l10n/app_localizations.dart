@@ -259,6 +259,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This booking would leave an invalid 30-minute gap'**
   String get invalidThirtyMinuteGap;
+
+  /// No description provided for @notAvailableForDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Not available for this duration'**
+  String get notAvailableForDuration;
 }
 
 class _AppLocalizationsDelegate

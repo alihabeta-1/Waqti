@@ -33,5 +33,6 @@
   "slotUnavailable": "هذا الموعد غير متاح",
   "notEnoughConsecutiveSlots": "لا توجد مواعيد متتالية كافية للحجز",
   "bookingExceedsWorkingHours": "هذا الحجز يتجاوز ساعات العمل",
-  "invalidThirtyMinuteGap": "هذا الحجز سيترك فترة 30 دقيقة غير صالحة"
+  "invalidThirtyMinuteGap": "هذا الحجز سيترك فترة 30 دقيقة غير صالحة",
+  "notAvailableForDuration": "غير مناسب لمدة الحجز"
 }

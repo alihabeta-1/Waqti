@@ -89,4 +89,7 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get invalidThirtyMinuteGap =>
       'هذا الحجز سيترك فترة 30 دقيقة غير صالحة';
+
+  @override
+  String get notAvailableForDuration => 'غير مناسب لمدة الحجز';
 }

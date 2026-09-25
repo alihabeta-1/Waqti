@@ -6,4 +6,6 @@ enum BookingFailureReason {
   exceedsWorkingHours,
   createsInvalidGap,
   persistenceFailure,
+  pastDate,
+  pastTime,
 }

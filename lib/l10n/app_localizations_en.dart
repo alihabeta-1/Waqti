@@ -92,4 +92,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get invalidThirtyMinuteGap =>
       'This booking would leave an invalid 30-minute gap';
+
+  @override
+  String get notAvailableForDuration => 'Not available for this duration';
 }

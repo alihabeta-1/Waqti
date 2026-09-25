@@ -33,5 +33,6 @@
   "slotUnavailable": "This time is unavailable",
   "notEnoughConsecutiveSlots": "Not enough consecutive time slots are available",
   "bookingExceedsWorkingHours": "This appointment would extend beyond working hours",
-  "invalidThirtyMinuteGap": "This booking would leave an invalid 30-minute gap"
+  "invalidThirtyMinuteGap": "This booking would leave an invalid 30-minute gap",
+  "notAvailableForDuration": "Not available for this duration"
 }

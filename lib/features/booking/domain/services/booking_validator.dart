@@ -12,10 +12,46 @@ class BookingValidator {
     required List<TimeSlot> slots,
     required DateTime startTime,
     required BookingDuration duration,
+    DateTime? now,
   }) {
-    final sortedSlots = [...slots]..sort((a, b) => a.start.compareTo(b.start));
+    final sortedSlots = [...slots]
+      ..sort((a, b) => a.start.compareTo(b.start));
+
+    final currentTime = now ?? DateTime.now();
+
+    final bookingDate = DateTime(
+      startTime.year,
+      startTime.month,
+      startTime.day,
+    );
+
+    final today = DateTime(
+      currentTime.year,
+      currentTime.month,
+      currentTime.day,
+    );
+
+    // Past dates are view-only.
+    if (bookingDate.isBefore(today)) {
+      return const BookingValidationResult.invalid(
+        BookingFailureReason.pastDate,
+      );
+    }
+
+    final isToday =
+        bookingDate.year == today.year &&
+        bookingDate.month == today.month &&
+        bookingDate.day == today.day;
+
+    // On today, a slot that has already started cannot be booked.
+    if (isToday && !startTime.isAfter(currentTime)) {
+      return const BookingValidationResult.invalid(
+        BookingFailureReason.pastTime,
+      );
+    }
 
     final bookingEnd = startTime.add(duration.duration);
+
     final workingDayEnd = DateTime(
       startTime.year,
       startTime.month,
@@ -48,7 +84,10 @@ class BookingValidator {
       );
     }
 
-    final selectedSlots = sortedSlots.sublist(startIndex, endIndex);
+    final selectedSlots = sortedSlots.sublist(
+      startIndex,
+      endIndex,
+    );
 
     if (!_areContinuous(selectedSlots)) {
       return const BookingValidationResult.invalid(
@@ -79,12 +118,15 @@ class BookingValidator {
       );
     }
 
-    return BookingValidationResult.valid(selectedSlots: selectedSlots);
+    return BookingValidationResult.valid(
+      selectedSlots: selectedSlots,
+    );
   }
 
   List<DateTime> getValidStartTimes({
     required List<TimeSlot> slots,
     required BookingDuration duration,
+    DateTime? now,
   }) {
     final validStartTimes = <DateTime>[];
 
@@ -97,6 +139,7 @@ class BookingValidator {
         slots: slots,
         startTime: slot.start,
         duration: duration,
+        now: now,
       );
 
       if (result.isValid) {
@@ -128,7 +171,9 @@ class BookingValidator {
   }) {
     if (selectedSlots.isEmpty) return false;
 
-    final selectedStarts = selectedSlots.map((slot) => slot.start).toSet();
+    final selectedStarts = selectedSlots
+        .map((slot) => slot.start)
+        .toSet();
 
     final simulatedStatuses = slots.map((slot) {
       if (selectedStarts.contains(slot.start)) {
@@ -138,12 +183,18 @@ class BookingValidator {
       return slot.status;
     }).toList();
 
-    for (var index = 0; index < simulatedStatuses.length; index++) {
-      if (simulatedStatuses[index] != SlotStatus.available) {
+    for (
+      var index = 0;
+      index < simulatedStatuses.length;
+      index++
+    ) {
+      if (simulatedStatuses[index] !=
+          SlotStatus.available) {
         continue;
       }
 
-      final isLastSlot = index == simulatedStatuses.length - 1;
+      final isLastSlot =
+          index == simulatedStatuses.length - 1;
 
       // A single available slot at the end of the working day is allowed.
       if (isLastSlot) {
@@ -151,10 +202,13 @@ class BookingValidator {
       }
 
       final previousIsBlocked =
-          index == 0 || simulatedStatuses[index - 1] != SlotStatus.available;
+          index == 0 ||
+          simulatedStatuses[index - 1] !=
+              SlotStatus.available;
 
       final nextIsBlocked =
-          simulatedStatuses[index + 1] != SlotStatus.available;
+          simulatedStatuses[index + 1] !=
+          SlotStatus.available;
 
       if (previousIsBlocked && nextIsBlocked) {
         return true;
