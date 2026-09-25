@@ -72,25 +72,15 @@ class BookingRepositoryImpl implements BookingRepository {
     required DateTime slotEnd,
     required List<Booking> bookings,
   }) {
-    final isBooked = bookings.any((booking) {
+    final isUserBooked = bookings.any((booking) {
       return slotStart.isBefore(booking.end) && slotEnd.isAfter(booking.start);
     });
 
-    if (isBooked) {
+    if (isUserBooked) {
       return SlotStatus.booked;
     }
 
-    if (_isPredefinedUnavailable(slotStart)) {
-      return SlotStatus.unavailable;
-    }
-
     return SlotStatus.available;
-  }
-
-  bool _isPredefinedUnavailable(DateTime dateTime) {
-    // Temporary local/mock rule.
-    // We will refine mock unavailable slots if required.
-    return false;
   }
 
   bool _isSameDate(DateTime first, DateTime second) {

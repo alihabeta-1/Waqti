@@ -8,6 +8,8 @@ import 'package:waqti/features/booking/domain/services/booking_validator.dart';
 import 'package:waqti/features/booking/presentation/cubit/booking_cubit.dart';
 import 'package:waqti/features/booking/presentation/cubit/booking_state.dart';
 
+import '../../domain/services/booking_validator_test.dart';
+
 void main() {
   late FakeBookingRepository repository;
   late BookingCubit cubit;
@@ -44,7 +46,9 @@ void main() {
 
     cubit = BookingCubit(
       repository: repository,
-      validator: const BookingValidator(),
+      validator: BookingValidator(
+        timeProvider: FakeTimeProvider(DateTime(2026, 9, 24, 8)),
+      ),
     );
   });
 

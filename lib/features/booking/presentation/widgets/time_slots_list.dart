@@ -17,40 +17,29 @@ class TimeSlotsList extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: state.slots.length,
-      gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10.w,
-            mainAxisSpacing: 10.h,
-            childAspectRatio: 2.2,
-          ),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 10.w,
+        mainAxisSpacing: 10.h,
+        mainAxisExtent: 90.h,
+      ),
       itemBuilder: (context, index) {
         final slot = state.slots[index];
 
         return TimeSlotTile(
           slot: slot,
           hasDuration: state.selectedDuration != null,
-          isValidStartTime: state.validStartTimes.contains(
-            slot.start,
-          ),
-          isSelected: _isSelected(
-            slot,
-            state.selectedSlots,
-          ),
+          isValidStartTime: state.validStartTimes.contains(slot.start),
+          isSelected: _isSelected(slot, state.selectedSlots),
           onTap: () {
-            context.read<BookingCubit>().selectStartTime(
-              slot.start,
-            );
+            context.read<BookingCubit>().selectStartTime(slot.start);
           },
         );
       },
     );
   }
 
-  bool _isSelected(
-    TimeSlot slot,
-    List<TimeSlot> selectedSlots,
-  ) {
+  bool _isSelected(TimeSlot slot, List<TimeSlot> selectedSlots) {
     return selectedSlots.any(
       (selectedSlot) => selectedSlot.start == slot.start,
     );

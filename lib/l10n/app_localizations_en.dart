@@ -95,4 +95,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notAvailableForDuration => 'Not available for this duration';
+
+  @override
+  String get pastDateBookingNotAllowed => 'Past dates are view only';
+
+  @override
+  String get pastTimeBookingNotAllowed => 'This time has already passed';
+
+  @override
+  String get bookingSaveFailed => 'Unable to save your booking';
+
+  @override
+  String get invalidStartTime => 'This start time is not available';
 }

@@ -16,16 +16,16 @@ class DurationSelector extends StatelessWidget {
 
     return BlocBuilder<BookingCubit, BookingState>(
       buildWhen: (previous, current) =>
-          previous.selectedDuration !=
-          current.selectedDuration,
+          previous.selectedDuration != current.selectedDuration,
       builder: (context, state) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               l10n.duration,
-              style: Theme.of(context).textTheme.titleMedium
-                  ?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
             ),
 
             SizedBox(height: 12.h),
@@ -37,17 +37,12 @@ class DurationSelector extends StatelessWidget {
               crossAxisSpacing: 10.w,
               mainAxisSpacing: 10.h,
               childAspectRatio: 2.8,
-              children: BookingDuration.values.map((
-                duration,
-              ) {
+              children: BookingDuration.values.map((duration) {
                 return DurationOptionCard(
                   label: _getDurationLabel(l10n, duration),
-                  isSelected:
-                      state.selectedDuration == duration,
+                  isSelected: state.selectedDuration == duration,
                   onTap: () {
-                    context
-                        .read<BookingCubit>()
-                        .selectDuration(duration);
+                    context.read<BookingCubit>().selectDuration(duration);
                   },
                 );
               }).toList(),
@@ -58,10 +53,7 @@ class DurationSelector extends StatelessWidget {
     );
   }
 
-  String _getDurationLabel(
-    AppLocalizations l10n,
-    BookingDuration duration,
-  ) {
+  String _getDurationLabel(AppLocalizations l10n, BookingDuration duration) {
     switch (duration) {
       case BookingDuration.thirtyMinutes:
         return l10n.thirtyMinutes;

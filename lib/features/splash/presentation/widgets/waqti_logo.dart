@@ -34,10 +34,7 @@ class WaqtiLogo extends StatelessWidget {
               height: 50.w,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(
-                  color: Colors.white,
-                  width: 2.w,
-                ),
+                border: Border.all(color: Colors.white, width: 2.w),
               ),
             ),
             Text(

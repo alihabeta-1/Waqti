@@ -21,8 +21,9 @@ class TimeSlotsSection extends StatelessWidget {
           children: [
             Text(
               l10n.chooseStartTime,
-              style: Theme.of(context).textTheme.titleMedium
-                  ?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
             ),
 
             SizedBox(height: 10.h),
@@ -34,14 +35,9 @@ class TimeSlotsSection extends StatelessWidget {
             if (state.selectedDuration == null) ...[
               Text(
                 l10n.selectDurationFirst,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.copyWith(
-                      color: Theme.of(
-                        context,
-                      ).colorScheme.onSurfaceVariant,
-                    ),
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
               ),
               SizedBox(height: 12.h),
             ],

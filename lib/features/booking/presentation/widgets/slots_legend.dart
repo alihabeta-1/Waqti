@@ -15,18 +15,9 @@ class SlotsLegend extends StatelessWidget {
       spacing: 14.w,
       runSpacing: 8.h,
       children: [
-        LegendItem(
-          label: l10n.available,
-          color: const Color(0xFF10B981),
-        ),
-        LegendItem(
-          label: l10n.selected,
-          color: colorScheme.primary,
-        ),
-        LegendItem(
-          label: l10n.booked,
-          color: const Color(0xFFF59E0B),
-        ),
+        LegendItem(label: l10n.available, color: const Color(0xFF10B981)),
+        LegendItem(label: l10n.selected, color: colorScheme.primary),
+        LegendItem(label: l10n.booked, color: const Color(0xFFF59E0B)),
         LegendItem(
           label: l10n.unavailable,
           color: Theme.of(context).disabledColor,

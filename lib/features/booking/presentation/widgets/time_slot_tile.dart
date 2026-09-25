@@ -27,13 +27,10 @@ class TimeSlotTile extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
 
     final isBooked = slot.status == SlotStatus.booked;
-    final isUnavailable =
-        slot.status == SlotStatus.unavailable;
+    final isUnavailable = slot.status == SlotStatus.unavailable;
 
     final canSelect =
-        hasDuration &&
-        slot.status == SlotStatus.available &&
-        isValidStartTime;
+        hasDuration && slot.status == SlotStatus.available && isValidStartTime;
 
     final backgroundColor = _getBackgroundColor(
       context: context,
@@ -66,10 +63,7 @@ class TimeSlotTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.r),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 160),
-          padding: EdgeInsets.symmetric(
-            horizontal: 14.w,
-            vertical: 12.h,
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
           decoration: BoxDecoration(
             color: backgroundColor,
             borderRadius: BorderRadius.circular(12.r),
@@ -82,24 +76,19 @@ class TimeSlotTile extends StatelessWidget {
               Text(
                 DateFormat(
                   'hh:mm a',
-                  Localizations.localeOf(
-                    context,
-                  ).languageCode,
+                  Localizations.localeOf(context).languageCode,
                 ).format(slot.start),
                 maxLines: 1,
-                style: Theme.of(context)
-                    .textTheme
-                    .titleMedium
-                    ?.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: _getTimeColor(
-                        context: context,
-                        isBooked: isBooked,
-                        isUnavailable: isUnavailable,
-                        canSelect: canSelect,
-                        isSelected: isSelected,
-                      ),
-                    ),
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: _getTimeColor(
+                    context: context,
+                    isBooked: isBooked,
+                    isUnavailable: isUnavailable,
+                    canSelect: canSelect,
+                    isSelected: isSelected,
+                  ),
+                ),
               ),
 
               SizedBox(height: 6.h),
@@ -193,21 +182,15 @@ class TimeSlotTile extends StatelessWidget {
     }
 
     if (isBooked) {
-      return const Color(
-        0xFFF59E0B,
-      ).withValues(alpha: 0.08);
+      return const Color(0xFFF59E0B).withValues(alpha: 0.08);
     }
 
     if (isUnavailable) {
-      return colorScheme.surfaceContainerHighest.withValues(
-        alpha: 0.50,
-      );
+      return colorScheme.surfaceContainerHighest.withValues(alpha: 0.50);
     }
 
     if (canSelect) {
-      return const Color(
-        0xFF10B981,
-      ).withValues(alpha: 0.07);
+      return const Color(0xFF10B981).withValues(alpha: 0.07);
     }
 
     return colorScheme.surface;
@@ -225,15 +208,11 @@ class TimeSlotTile extends StatelessWidget {
     }
 
     if (isBooked) {
-      return const Color(
-        0xFFF59E0B,
-      ).withValues(alpha: 0.50);
+      return const Color(0xFFF59E0B).withValues(alpha: 0.50);
     }
 
     if (canSelect) {
-      return const Color(
-        0xFF10B981,
-      ).withValues(alpha: 0.40);
+      return const Color(0xFF10B981).withValues(alpha: 0.40);
     }
 
     return Theme.of(context).dividerColor;

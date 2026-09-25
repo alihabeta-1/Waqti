@@ -92,4 +92,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get notAvailableForDuration => 'غير مناسب لمدة الحجز';
+
+  @override
+  String get pastDateBookingNotAllowed => 'الأيام السابقة متاحة للاطلاع فقط';
+
+  @override
+  String get pastTimeBookingNotAllowed => 'هذا الموعد قد مضى بالفعل';
+
+  @override
+  String get bookingSaveFailed => 'تعذر حفظ الحجز';
+
+  @override
+  String get invalidStartTime => 'وقت البداية هذا غير متاح';
 }

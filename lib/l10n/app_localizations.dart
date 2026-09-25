@@ -265,6 +265,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Not available for this duration'**
   String get notAvailableForDuration;
+
+  /// No description provided for @pastDateBookingNotAllowed.
+  ///
+  /// In en, this message translates to:
+  /// **'Past dates are view only'**
+  String get pastDateBookingNotAllowed;
+
+  /// No description provided for @pastTimeBookingNotAllowed.
+  ///
+  /// In en, this message translates to:
+  /// **'This time has already passed'**
+  String get pastTimeBookingNotAllowed;
+
+  /// No description provided for @bookingSaveFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to save your booking'**
+  String get bookingSaveFailed;
+
+  /// No description provided for @invalidStartTime.
+  ///
+  /// In en, this message translates to:
+  /// **'This start time is not available'**
+  String get invalidStartTime;
 }
 
 class _AppLocalizationsDelegate
